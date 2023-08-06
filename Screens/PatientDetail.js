@@ -52,6 +52,7 @@ const PatientDetail = ({ route, navigation }) => {
     });
   };
 
+  // DELETES THE PATIENT, REDIRECT YOU BACK TO HOME PAGE AND REFRESHES THE LIST
   const handleDelete = async () => {
     try {
       const deletePatientResponse = await patientInstance.delete(
@@ -161,7 +162,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
     height: "100%",
-
     gap: 10,
   },
   patientDetailContainer: {
@@ -215,7 +215,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
     flexDirection: "column",
-
     gap: 20,
   },
   historyContainer: {

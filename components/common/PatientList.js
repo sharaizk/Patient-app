@@ -19,6 +19,7 @@ const PatientList = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
+  // FETCHES THE LIST OF PATIENTS AND ON PAGE CHANGE IT FETCHES NEW LIST
   useEffect(() => {
     try {
       dispatch(fetchAllPatients({ page }));
@@ -26,8 +27,9 @@ const PatientList = () => {
       console.log(e);
     }
   }, [page]);
+
+  // THIS FUNCTION iS EXECUTED WHEN YOU HAVE REACH BOTTOM OF THE LIST
   const handleNextPage = ({ distanceFromEnd }) => {
-    // if (distanceFromEnd <= 0) return;
     const nextPage = parseInt(page) + 1;
 
     if (nextPage < totalPages) {

@@ -7,7 +7,9 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
+        {/* RENDERS THE BANNER */}
         <HomeUserBanner />
+        {/* RENDERS LIST OF PATIENTS */}
         <PatientList />
       </View>
     </SafeAreaView>

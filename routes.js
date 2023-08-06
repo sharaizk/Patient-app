@@ -51,11 +51,12 @@ const Route = () => {
   const isSignedIn = useSelector(({ authSlice }) => authSlice.isSignedIn);
   const dispatch = useDispatch();
 
+  // HANDLES AUTO LOGIN WHEN USER OPENS THE APP AFTER EXIT
   useEffect(() => {
-
     dispatch(tryLocalSignIn());
   }, []);
 
+  // SETTING FONTS
   let [fontsLoaded] = useFonts({
     NunitoSans_200ExtraLight,
     NunitoSans_200ExtraLight_Italic,
@@ -75,6 +76,7 @@ const Route = () => {
   if (!fontsLoaded) {
     <AppLoading />;
   } else if (!isSignedIn) {
+    // UNaUTHENTICATED ROUTES
     return (
       <NavigationContainer theme={MyTheme}>
         <Stack.Navigator
@@ -89,6 +91,7 @@ const Route = () => {
       </NavigationContainer>
     );
   } else {
+    // AUTHENTICATED ROUTES
     return (
       <NavigationContainer theme={MyTheme}>
         <Stack.Navigator
@@ -97,7 +100,9 @@ const Route = () => {
             cardStyle: { backgroundColor: "#fff" },
           }}
         >
+          {/* SCREENS THAT BELONGS TO BOTTOM TAB */}
           <Stack.Screen name="tabs" component={BottomTabs} />
+          {/* NORMAL SCREENS: */}
           <Stack.Screen name="PatientDetail" component={PatientDetail} />
           <Stack.Screen name="EditPatient" component={EditPatient} />
         </Stack.Navigator>

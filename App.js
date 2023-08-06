@@ -11,6 +11,7 @@ const store = configureStore({
 
 export default function App() {
   return (
+    // REDUX PROVIDER
     <Provider store={store}>
       <StatusBar style="auto" />
       <Route />
